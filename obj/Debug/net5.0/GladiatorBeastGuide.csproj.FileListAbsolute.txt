@@ -38,3 +38,4 @@ C:\Users\marra\source\repos\GladiatorBeastGuide\obj\Debug\net5.0\ref\GladiatorBe
 C:\Users\marra\source\repos\GladiatorBeastGuide\obj\Debug\net5.0\GladiatorBeastGuide.pdb
 C:\Users\marra\source\repos\GladiatorBeastGuide\obj\Debug\net5.0\GladiatorBeastGuide.genruntimeconfig.cache
 C:\Users\marra\source\repos\GladiatorBeastGuide\obj\Debug\net5.0\GladiatorBeastGuide.csproj.CopyComplete
+C:\Users\marra\source\repos\GladiatorBeastGuide\obj\Debug\net5.0\GladiatorBeastGuide.csproj.AssemblyReference.cache
