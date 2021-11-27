@@ -1,0 +1,29 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/dotnetcore,web
+# Edit at https://www.toptal.com/developers/gitignore?templates=dotnetcore,web
+
+### DotnetCore ###
+# .NET Core build folders
+bin/
+obj/
+
+# Common node modules locations
+/node_modules
+/wwwroot/node_modules
+
+### Web ###
+*.asp
+*.cer
+*.csr
+*.css
+*.htm
+*.html
+*.js
+*.jsp
+*.php
+*.rss
+*.wasm
+*.wat
+*.xhtml
+
+# End of https://www.toptal.com/developers/gitignore/api/dotnetcore,web
