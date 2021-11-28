@@ -1,7 +1,182 @@
 ﻿[
   {
-    "name": "",
+    "name": "Gladiator Beast Andabata",
+    "ratio": "0-1",
+    "explanation": "Play at your own leisure. I personnally don't like it as it's an expensive fusion, but it can be a work around to Tamer Editor."
+  },
+  {
+    "name": "Gladiator Beast Andal",
+    "ratio": "0 or 3",
+    "explanation": "You play 3 if you play rabbit. You play 0 if you don't. That's it."
+  },
+  {
+    "name": "Gladiator Beast Attorix",
+    "ratio": "1-2",
+    "explanation": "Mandatory to any Gladiator beast combo. One at least, 2 if you want to or feel like you need to see her more than once."
+  },
+  {
+    "name": "Gladiator Beast Augustus",
+    "ratio": "2",
+    "explanation": "You play two. Period. They are the materials for Tamer Editor, they summon the Attorix from hand, or themselves, but seeing more than that in your hand will make you cry a lot."
+  },
+  {
+    "name": "Gladiator Beast Bestiari",
+    "ratio": "0-1",
+    "explanation": "You can play 0 of this card as we have other ways to special summon Gyzarus. The one off is nice in pure version, or if you need another monster to summon off of Simorgh's end phase effect."
+  },
+  {
+    "name": "Gladiator Beast Darius",
+    "ratio": "1",
+    "explanation": "A good monster. You don't need more than one as it's searchable by every other Gladiator beast."
+  },
+  {
+    "name": "Gladiator Beast Domitianus",
+    "ratio": "1-3",
+    "explanation": "Your boss monster. You want to always end with one of him on the board. Play as many or as little as your extra deck space allows you to."
+  },
+  {
+    "name": "Gladiator Beast Dragases",
+    "ratio": "0-1",
+    "explanation": "A decent link in go second build, a slightly worse one going first, it's still a gladiator beast name that is easy to summon and can transform two andals into two useful monsters."
+  },
+  {
+    "name": "Gladiator Beast Equeste",
+    "ratio": "1",
+    "explanation": "A good monster. You don't need more than one as it's searchable by every other Gladiator beast."
+  },
+  {
+    "name": "Gladiator Beast Essedarii",
+    "ratio": "0-1",
+    "explanation": "An \"extender\": you can transform two monster into a level 5, which is half the materials for Tamer Editor. He serves the same purpose as Andabata, and I would recommend to either play none of both, or only one of either, but never both together."
+  },
+  {
+    "name": "Gladiator Beast Gyzarus",
+    "ratio": "1-2",
+    "explanation": "ALWAYS play at least one, as it's your best source of board clear. If playing a go second build, having multiple of him can become vital."
+  },
+  {
+    "name": "Gladiator Beast Heraklinos",
+    "ratio": "0-1",
+    "explanation": "You can play without him, but you'll regret it every time you need S/T disruption. He's good at disrupting but the discard cost is hard to fulfill as you will often end your turn without any cards in hand."
+  },
+  {
+    "name": "Gladiator Beast Laquari",
+    "ratio": "0",
+    "explanation": "Used to be good, and used to be the Heraklinos material. Now that tamer editor is a thing, you don't have to play him."
+  },
+  {
+    "name": "Gladiator Beast Murmillo",
+    "ratio": "0",
+    "explanation": "Used to be good."
+  },
+  {
+    "name": "Gladiator Beast Nerokius",
+    "ratio": "0-1",
+    "explanation": "A convoluted way of transforming 3 bodies into half a tamer editor."
+  },
+  {
+    "name": "Gladiator Beast Noxious",
+    "ratio": "0-1",
+    "explanation": "A good level and an okay effect grant him a decent chance at being a one off in your deck. Sadly, his level also forbids him from being summoned or searched by other cards in the archetype."
+  },
+  {
+    "name": "Gladiator Beast Retiari",
+    "ratio": "0",
+    "explanation": "Used to be good."
+  },
+  {
+    "name": "Gladiator Beast Sagittarii",
+    "ratio": "0-1",
+    "explanation": "A terrible card: it has to be special summoned by a gladiator beast (minus 1) and discard a gladiator beast card (another minus) to draw 2 cards (plus 2, making the whole exchange worthless). Only played in the \"Infinite negate\" variant as part of an extremely convlouted combo."
+  },
+  {
+    "name": "Gladiator Beast Samnite",
+    "ratio": "0 or 2",
+    "explanation": "Same as Andal but with Rescue Cat : play 2 if you play cat, play 0 otherwise."
+  },
+  {
+    "name": "Gladiator Beast Secutor",
+    "ratio": "0",
+    "explanation": "Used to be good."
+  },
+  {
+    "name": "Gladiator Beast Tamer Editor",
+    "ratio": "1-3",
+    "explanation": "Litterally the best card in the archetype. It's easy to summon. There is no hard once per turn on it. You want to spam him as many times as possible. You play between one and three depending on your Extra Deck space. If you only play one, simply hope your opponent does not use D.D. Crow or Called By The Grave on it."
+  },
+  {
+    "name": "Gladiator Beast Vespasius",
+    "ratio": "0-1",
+    "explanation": "A good level, an okay hand effect. Play at your own leisure."
+  },
+  {
+    "name": "Test Panther",
+    "ratio": "1-2",
+    "explanation": "Probably the second best card in your Extra Deck, after Tamer Editor. Your combo starter. You want to play at least one, the second copy is here to let you try again next turn or in the same turn if he gets Ashed."
+  },
+  {
+    "name": "Test Tiger",
     "ratio": "0-3",
-    "explanation": ""
+    "explanation": "Play at your own leisure. I personnally love it, but can understand that it's technically not the best exchange you can do."
+  },
+  {
+    "name": "Colosseum - Cage of the Gladiator Beasts",
+    "ratio": "0",
+    "explanation": "Used to be good."
+  },
+  {
+    "name": "Gladiator Beast United",
+    "ratio": "0-3",
+    "explanation": "Terrible in go first list, a really good option in going second ones. Play as many as you want in blind second builds."
+  },
+  {
+    "name": "Gladiator Beast's Comeback",
+    "ratio": "2-3",
+    "explanation": "The best card in the main deck. Always play as many as possible."
+  },
+  {
+    "name": "Gladiator Beast's Respite",
+    "ratio": "0",
+    "explanation": "Unplayable because we never play enough main deck monsters."
+  },
+  {
+    "name": "Gladiator Proving Ground",
+    "ratio": "0-3",
+    "explanation": "I personnally would not play it. ROTA sounds promising at first until you remember all of your monsters prefer to be special summoned by another monster. You can play 3 if you feel like you need to search your monsters."
+  },
+  {
+    "name": "Gladiator Rejection",
+    "ratio": "0-3",
+    "explanation": "Play at your own leisure, extremely good in pure variants."
+  },
+  {
+    "name": "Gladiator's Return",
+    "ratio": "0",
+    "explanation": "Unplayable because we never play enough main deck monsters."
+  },
+  {
+    "name": "Gladiator's Return",
+    "ratio": "0",
+    "explanation": "Unplayable because we never play enough main deck monsters."
+  },
+  {
+    "name": "Defensive Tactics",
+    "ratio": "0",
+    "explanation": "Used to be good."
+  },
+  {
+    "name": "Double Tag Team",
+    "ratio": "0",
+    "explanation": "Used to be good."
+  },
+  {
+    "name": "Gladiator Beast War Chariot",
+    "ratio": "0-3",
+    "explanation": "Searchable so you can only play one."
+  },
+  {
+    "name": "Gladiator Beast Charge",
+    "ratio": "0-2",
+    "explanation": "Searchable. Playable in pure."
   }
 ]
