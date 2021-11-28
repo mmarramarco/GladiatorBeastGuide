@@ -12,7 +12,14 @@ namespace GladiatorBeastGuide.Providers
         /// <summary>
         /// Get all the gladiator beast cards.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A list of card.</returns>
         public Task<List<Card>> GetAllGladiatorBeastCard();
+
+        /// <summary>
+        /// Gets information about the given card.
+        /// </summary>
+        /// <param name="name">The name of the card.</param>
+        /// <returns>The card information.</returns>
+        public Task<Card> Get(string name);
     }
 }

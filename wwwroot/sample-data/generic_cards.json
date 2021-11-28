@@ -1,0 +1,67 @@
+﻿[
+  {
+    "name": "Rescue Cat",
+    "ratio": "0 or 3",
+    "explanation": "Will dictate which version you're playing. Play as many as possible if you decide to play it."
+  },
+  {
+    "name": "Rescue Rabbit",
+    "ratio": "0 or 3",
+    "explanation": "Will dictate which version you're playing. Play as many as possible if you decide to play it."
+  },
+  {
+    "name": "Unexpected Dai",
+    "ratio": "0 or 3",
+    "explanation": "Only play 3 with Rescue Rabbit."
+  },
+  {
+    "name": "Simorgh, Bird of Sovereignty",
+    "ratio": "1",
+    "explanation": "Part of your end board. It summons Apex Avian or Barrier Statur of the Stormwinds. It can be made using a Gyzarus, and Equeste, or a Nervall as a material."
+  },
+  {
+    "name": "Evenly Matched",
+    "ratio": "0-3",
+    "explanation": "Excellent going second card. There's a funny interaction with it where you can do the following, with one gladiator beast monster on the field and this card in hand: activate your monster's effect to be shuffled into the deck as cost, chain Evenly Matched. You have only Evenly on the field at resolution, and then your Gladiator Beast monster will resolve by summoning someone else."
+  },
+  {
+    "name": "Small World",
+    "ratio": "0-3",
+    "explanation": "Play as many as you wish. A good card due to great disparity of statistics in our archetype."
+  },
+  {
+    "name": "Re-Fusion",
+    "ratio": "0-3",
+    "explanation": "A risky reborn, but it's not a hard once per turn like Succession and it's not at one like Monster Reborn."
+  },
+  {
+    "name": "Cross-Sheep",
+    "ratio": "1",
+    "explanation": "Combo piece. Always play one."
+  },
+  {
+    "name": "Link Spider",
+    "ratio": "0 or 1",
+    "explanation": "Always play one if you're playing the Rescue Rabbit package. It allows the following if you to do the following if you open two Andals: Normal summon one of them, make link spider, special summon the other one from hand, make Test Panther."
+  },
+  {
+    "name": "Mist Valley Apex Avian",
+    "ratio": "0-1",
+    "explanation": "A simorgh target."
+  },
+  {
+    "name": "Barrier Statue of the Stormwinds",
+    "ratio": "0-1",
+    "explanation": "A simorgh target. Might make you lose some friend."
+  },
+  {
+    "name": "Fire Formation - Tenki",
+    "ratio": "0-1",
+    "explanation": "A limited card, but a one off rota to search Tri-Brigade Fraktall can be good. Not necessary, but useful to know it exist."
+  },
+  {
+    "name": "Ancient Warriors Oath - Double Dragon Lords",
+    "ratio": "",
+    "explanation": ""
+  }
+]

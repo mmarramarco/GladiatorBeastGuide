@@ -8,7 +8,14 @@
 
 <strong>Table of Contents</strong>
 <ol>
-    <li><a href="/cards#Archetype">The archetypal cards</a></li>
+    <li>
+        <a href="/cards#Archetype">The archetypal cards</a>
+        <ol>
+            <li><a href="/cards#ArchetypeMonsters">The monsters</a></li>
+            <li><a href="/cards#ArchetypeSpells">The spells</a></li>
+            <li><a href="/cards#ArchetypeTraps">The traps</a></li>
+        </ol>
+    </li>
     <li><a href="/cards#Generic">The generic yet essential cards</a></li>
     <li>
         <a href="/cards#OtherArchetypes">The other archetype cards that you must know.</a>
@@ -21,6 +28,7 @@
 
 <h1 id="Archetype">The archetypal cards</h1>
 
+<h2 id="ArchetypeMonsters">The monsters</h2>
 @foreach (var monster in _archetypalMonsters)
 {
     <div>
@@ -29,7 +37,7 @@
         <div>
             Additional information:
             <div>
-                <span style="text-decoration:underline">Ratio : @monster.AdditionalInformation.Ratio</span>
+                <span style="text-decoration:underline">Ratio: @monster.AdditionalInformation.Ratio</span>
             </div>
             <div>
                 @monster.AdditionalInformation.Explanation
@@ -38,11 +46,64 @@
     </div>
 }
 
+<h2 id="ArchetypeSpells">The spells</h2>
+@foreach (var spell in _archetypalSpells)
+{
+    <div>
+        <h3>@spell.Name</h3>
+        <img src="@spell.Images[0].ImageUrl" />
+        <div>
+            Additional information:
+            <div>
+                <span style="text-decoration:underline">Ratio: @spell.AdditionalInformation.Ratio</span>
+            </div>
+            <div>
+                @spell.AdditionalInformation.Explanation
+            </div>
+        </div>
+    </div>
+}
+
+<h2 id="ArchetypeTraps">The traps</h2>
+@foreach (var traps in _archetypalTraps)
+{
+    <div>
+        <h3>@traps.Name</h3>
+        <img src="@traps.Images[0].ImageUrl" />
+        <div>
+            Additional information:
+            <div>
+                <span style="text-decoration:underline">Ratio: @traps.AdditionalInformation.Ratio</span>
+            </div>
+            <div>
+                @traps.AdditionalInformation.Explanation
+            </div>
+        </div>
+    </div>
+}
 
 <h1 id="Generic">The generic yet essential cards</h1>
+@foreach (var traps in _genericCards)
+{
+    <div>
+        <h3>@traps.Name</h3>
+        <img src="@traps.Images[0].ImageUrl" />
+        <div>
+            Additional information:
+            <div>
+                <span style="text-decoration:underline">Ratio: @traps.AdditionalInformation.Ratio</span>
+            </div>
+            <div>
+                @traps.AdditionalInformation.Explanation
+            </div>
+        </div>
+    </div>
+}
+
+
 <h1 id="OtherArchetypes">The other archetype cards that you must know.</h1>
-<h1 id="TriBrigade">Tri-Brigade</h1>
-<h1 id="WorldLegacy">World Legacy</h1>
+<h2 id="TriBrigade">Tri-Brigade</h2>
+<h2 id="WorldLegacy">World Legacy</h2>
 
 <AnchorNavigation />
 
@@ -50,31 +111,41 @@
     private List<Card> _archetypalCards = new List<Card>();
     private List<Card> _archetypalMonsters => _archetypalCards.Where(_ => _.Type.Contains("Monster")).ToList();
     private List<Card> _archetypalSpells => _archetypalCards.Where(_ => _.Type.Contains("Spell")).ToList();
-    private List<Card> _archetypalTraps => _archetypalCards.Where(_ => _.Type.Contains("Traps")).ToList();
-    private List<AdditionalInformation> _additionalInformation;
+    private List<Card> _archetypalTraps => _archetypalCards.Where(_ => _.Type.Contains("Trap")).ToList();
+    private List<AdditionalInformation> _genericCardsInformation;
+    private List<Card> _genericCards = new List<Card>();
 
     protected override async Task OnInitializedAsync()
     {
         _archetypalCards = await _ygoProDeckProvider.GetAllGladiatorBeastCard().ConfigureAwait(false);
-        _additionalInformation = await _httpClient.GetFromJsonAsync<List<AdditionalInformation>>("sample-data/additional_information.json");
-        MapAllAdditionalInformation(_archetypalCards);
+        var additionalInformationForArchetype = await _httpClient.GetFromJsonAsync<List<AdditionalInformation>>("sample-data/additional_information.json");
+        MapAllAdditionalInformation(_archetypalCards, additionalInformationForArchetype);
+
+        _genericCardsInformation = await _httpClient.GetFromJsonAsync<List<AdditionalInformation>>("sample-data/generic_cards.json");
+        foreach (var cardInformation in _genericCardsInformation)
+        {
+            var card = await _ygoProDeckProvider.Get(cardInformation.Name).ConfigureAwait(false);
+            card.AdditionalInformation = cardInformation;
+            _genericCards.Add(card);
+        }
+        _genericCards = _genericCards.OrderBy(_ => _.Type).ToList();
     }
 
-    private void MapAllAdditionalInformation(List<Card> cards)
+    private void MapAllAdditionalInformation(List<Card> cards, List<AdditionalInformation> additionalInformation)
     {
-        foreach(var card in cards)
+        foreach (var card in cards)
         {
-            MapAdditionalInformation(card);
+            MapAdditionalInformation(card, additionalInformation);
         }
     }
 
-    private void MapAdditionalInformation(Card card)
+    private void MapAdditionalInformation(Card card, List<AdditionalInformation> additionalInformation)
     {
-        var additionalInformation = _additionalInformation.FirstOrDefault(_ => _.Name == card.Name);
+        var specificAdditionalInformation = additionalInformation.FirstOrDefault(_ => _.Name == card.Name);
 
-        if(additionalInformation == null)
+        if (specificAdditionalInformation == null)
         {
-            additionalInformation = new AdditionalInformation
+            specificAdditionalInformation = new AdditionalInformation
             {
                 Name = card.Name,
                 Ratio = "0",
@@ -82,6 +153,6 @@
             };
         }
 
-        card.AdditionalInformation = additionalInformation;
+        card.AdditionalInformation = specificAdditionalInformation;
     }
 }

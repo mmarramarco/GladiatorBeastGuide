@@ -1,10 +1,10 @@
 ﻿using GladiatorBeastGuide.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace GladiatorBeastGuide.Providers
 {
@@ -14,6 +14,25 @@ namespace GladiatorBeastGuide.Providers
     public class YgoProDeckProvider : IYgoProDeckProvider
     {
         private const string YgoProDeckRoute = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
+
+        /// <inheritdoc/>
+        public async Task<Card> Get(string name)
+        {
+            // var formattedName = name.Replace(" ", "%20");
+            var nameFilter = $"?name={name}";
+            var completeRoute = $"{YgoProDeckRoute}{nameFilter}";
+            using var client = new HttpClient();
+            var result = await client.GetAsync(completeRoute).ConfigureAwait(false);
+            var content = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new InvalidProgramException($"Something went wrong while calling YgoProDeck API: tried {completeRoute}, got status code '{result.StatusCode}':'{content}'");
+            }
+
+            var card = JsonConvert.DeserializeObject<YgoProDeckAnswer>(content).Data.First();
+            return card;
+        }
 
         /// <inheritdoc/>
         public async Task<List<Card>> GetAllGladiatorBeastCard()
@@ -32,6 +51,7 @@ namespace GladiatorBeastGuide.Providers
             var cards = JsonConvert.DeserializeObject<YgoProDeckAnswer>(content).Data;
             return cards;
         }
+
 
         /// <summary>
         /// The ygo pro deck answer. 
