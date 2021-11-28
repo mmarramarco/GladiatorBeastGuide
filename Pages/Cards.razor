@@ -1,11 +1,15 @@
 ﻿@page "/cards"
+@using GladiatorBeastGuide.Models
+@using GladiatorBeastGuide.Providers
+@inject IYgoProDeckProvider _ygoProDeckProvider
+@inject HttpClient _httpClient
 
 <h3>Cards</h3>
 
 <strong>Table of Contents</strong>
 <ol>
-    <li><a href="/cards#Archetype">The archetypal cards.</a></li>
-    <li><a href="/cards#Generic">The generic yet essential cards.</a></li>
+    <li><a href="/cards#Archetype">The archetypal cards</a></li>
+    <li><a href="/cards#Generic">The generic yet essential cards</a></li>
     <li>
         <a href="/cards#OtherArchetypes">The other archetype cards that you must know.</a>
         <ol>
@@ -15,11 +19,27 @@
     </li>
 </ol>
 
-<h1 id="Archetype">The archetypal cards.</h1>
+<h1 id="Archetype">The archetypal cards</h1>
+
+@foreach (var monster in _archetypalMonsters)
+{
+    <div>
+        <h3>@monster.Name</h3>
+        <img src="@monster.Images[0].ImageUrl" />
+        <div>
+            Additional information:
+            <div>
+                <span style="text-decoration:underline">Ratio : @monster.AdditionalInformation.Ratio</span>
+            </div>
+            <div>
+                @monster.AdditionalInformation.Explanation
+            </div>
+        </div>
+    </div>
+}
 
 
-
-<h1 id="Generic">The generic yet essential cards.</h1>
+<h1 id="Generic">The generic yet essential cards</h1>
 <h1 id="OtherArchetypes">The other archetype cards that you must know.</h1>
 <h1 id="TriBrigade">Tri-Brigade</h1>
 <h1 id="WorldLegacy">World Legacy</h1>
@@ -27,5 +47,41 @@
 <AnchorNavigation />
 
 @code {
-    //private List<Card> ArchetypalCards;
+    private List<Card> _archetypalCards = new List<Card>();
+    private List<Card> _archetypalMonsters => _archetypalCards.Where(_ => _.Type.Contains("Monster")).ToList();
+    private List<Card> _archetypalSpells => _archetypalCards.Where(_ => _.Type.Contains("Spell")).ToList();
+    private List<Card> _archetypalTraps => _archetypalCards.Where(_ => _.Type.Contains("Traps")).ToList();
+    private List<AdditionalInformation> _additionalInformation;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _archetypalCards = await _ygoProDeckProvider.GetAllGladiatorBeastCard().ConfigureAwait(false);
+        _additionalInformation = await _httpClient.GetFromJsonAsync<List<AdditionalInformation>>("sample-data/additional_information.json");
+        MapAllAdditionalInformation(_archetypalCards);
+    }
+
+    private void MapAllAdditionalInformation(List<Card> cards)
+    {
+        foreach(var card in cards)
+        {
+            MapAdditionalInformation(card);
+        }
+    }
+
+    private void MapAdditionalInformation(Card card)
+    {
+        var additionalInformation = _additionalInformation.FirstOrDefault(_ => _.Name == card.Name);
+
+        if(additionalInformation == null)
+        {
+            additionalInformation = new AdditionalInformation
+            {
+                Name = card.Name,
+                Ratio = "0",
+                Explanation = "This card is useless. Don't play it."
+            };
+        }
+
+        card.AdditionalInformation = additionalInformation;
+    }
 }
